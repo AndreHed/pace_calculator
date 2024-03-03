@@ -29,7 +29,7 @@ def format_pace(pace, unit='km'):
     :param unit: pace in km or mile
     :type pace: float
     :param pace: pace in seconds per meter
-    :return: string format mm:ss
+    :return: string format mm:ss/unit
     """
     if unit == 'km':
         pace_scaled = pace * KM_IN_METERS / 60.0
@@ -39,7 +39,7 @@ def format_pace(pace, unit='km'):
         raise Exception('Incorrect pace unit')
     minutes = str(int(pace_scaled))
     seconds = str(round((pace_scaled % 1) * 60, 1))
-    return minutes + ':' + seconds + '/km'
+    return minutes + ':' + seconds + '/' + unit
 
 
 def format_speed(speed):
